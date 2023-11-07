@@ -13,7 +13,13 @@ int main(){
         scanf("%d", &valoresinicias[i]);
     }
     for(i= 0;  i < 10; i++){
-        printf("%d ", valoresinicias[i]);
+        if(i != 9){
+            printf("%d ", valoresinicias[i]);
+        } else{
+            printf("%d", valoresinicias[i]);
+        }
+        
+        
     }
     
     printf("\n");
@@ -22,14 +28,20 @@ int main(){
         while(inicio != 0){
             for(int j = 0 ; j < inicio; j++){
                 somas[j] = valoresinicias[j] + valoresinicias[j + 1];
-                printf("%d ", somas[j]);
+               
+                printf("%d", somas[j]);
+              
                 for(int k = 0; k <= j ; k++ ){
                  valoresinicias[k] = somas[k];
                     soma--;
                 }
-                
+                if (j != inicio - 1){
+                    printf(" ");
+                }
             }
+            
             printf("\n");
+            
             inicio--;
         }
         ultimovalor = 1;
