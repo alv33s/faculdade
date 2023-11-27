@@ -2,7 +2,7 @@
 #include <string.h>
 
 int romanoparadecimal(char numeroromano[]) {
-    int valores[12], n = strlen(numeroromano), decimal = 0;
+    int valores[15], n = strlen(numeroromano), decimal = 0;
     int i;
     
     for( i = 0; i < 12; i++){
@@ -57,7 +57,7 @@ int romanoparadecimal(char numeroromano[]) {
 }
 
 void decimalparabinario(int decimal, char numeroromano[]){
-    int binario[15], ne = 0;
+    int binario[30], ne = 0;
 
     for(int i = 0; decimal > 0 ; i++) {
         binario[i] = decimal%2;
@@ -73,14 +73,41 @@ void decimalparabinario(int decimal, char numeroromano[]){
     
 }
 
-int main(){
-    char numeroromano[12]; 
-    fgets(numeroromano, 12, stdin);
+char decimalParaHexadecimal(int decimal, char numeroromano[]) {
+    char hexadecimal[20];  
 
+    int indice = 0;
+    while (decimal > 0) {
+        int resto = decimal % 16;
+
+        
+        if (resto < 10) {
+            hexadecimal[indice] = resto + '0';
+        } else {
+            hexadecimal[indice] = resto - 10 + 'a';
+        }
+
+        indice++;
+        decimal /= 16;
+    }
+
+  
+    printf("%s na base 16: ", numeroromano);
+    for (int i = indice - 1; i >= 0; i--) {
+        printf("%c", hexadecimal[i]);
+    }
+    printf("\n");
+}
+
+int main(){
+    char numeroromano[13]; 
+    fgets(numeroromano, 13, stdin);
+    fflush(stdin);
+    numeroromano[strcspn(numeroromano, "\n")] = 0;
     int decimal = romanoparadecimal(numeroromano);
     decimalparabinario(decimal,numeroromano);
     printf("%s na base 10: %d\n", numeroromano,decimal);
-    printf("%s na base 16: %X\n", decimal);
+    decimalParaHexadecimal(decimal, numeroromano);
     
     return 0;
 }
