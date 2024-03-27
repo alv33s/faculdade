@@ -21,9 +21,9 @@
         <div class="buttonsform">    
             <div>
                 <form id="telalogin">
-                    <input type="Email" placeholder="Email" required>
+                    <input onclick="guardarEmail()"  id="campoEMAIL" type="Email" placeholder="Email" required>
                         <i class="fa-solid fa-envelope" id="icon1"></i>
-                    <input type="senha" placeholder="Senha" required>
+                    <input onclick="guardarSenha()" id="campoSENHA" type="senha" placeholder="Senha" required>
                         <i class="fa-solid fa-lock"id="icon2"></i>
                 <div class="divcheck">
                     <input type="checkbox" />
@@ -31,10 +31,11 @@
                 </div>
                 
             </div>
-            <button type="submit" id="entrar">Entrar</button>
+            <button onclick="confirmarLogin()" type="submit" id="entrarLogin"><a href="home2.html" style="display: flexbox; align-items: center; align-self: flex-end;">Entrar</a></button>
         </form>
     </div>
     
     
 </body>
+<script src="loja.js" defer></script>
 </html>
