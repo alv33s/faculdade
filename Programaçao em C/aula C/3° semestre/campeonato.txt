@@ -1,0 +1,5 @@
+Capital 7 1 1
+Ceilândia 6 2 1
+Gama 6 2 1
+Brasiliense 6 1 2
+Paranoá 5 3 1
