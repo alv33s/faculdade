@@ -12,6 +12,7 @@ int main(){
     if (arquivo == NULL || html == NULL)
     {
         printf("Erro");
+        return 1;
     }
     
 
