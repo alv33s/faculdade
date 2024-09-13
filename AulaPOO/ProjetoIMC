@@ -1,0 +1,88 @@
+package br.com.imc;
+
+public class Atleta extends Pessoa {
+	
+	private String esportePraticado;
+
+	public Atleta(String nome, float peso, float altura, String esportePraticado) {
+		super(nome, peso, altura);
+		this.esportePraticado = esportePraticado;
+	}
+
+	@Override
+	public float calcularIMC() {
+		// TODO Auto-generated method stub
+		float imcBase = super.calcularIMC();
+		float imcFinal = (float) (imcBase * 0.5);
+		return imcFinal;
+	}
+	
+
+	
+
+}
+
+package br.com.imc;
+
+public class Pessoa {
+
+	private String nome;
+	private float peso;
+	private float altura;
+	
+	public Pessoa(String nome, float peso, float altura) {
+		this.nome = nome;
+		this.peso = peso;
+		this.altura = altura;
+	}
+	
+
+	public float calcularIMC() {
+		float IMC;
+		IMC = this.peso / (this.altura * this.altura);
+		return IMC;
+	}
+	
+	public String getNome(String nome) {
+		return nome;
+	}
+	
+	public float getPeso() {
+		return this.peso;
+	}
+	
+	public double getAltura() {
+		return this.altura;
+	}
+	
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+	
+	public void setPeso(float peso) {
+		this.peso = peso;
+	}
+	
+	public void setAltura(float altura) {
+		this.altura = altura;
+	}
+	
+}
+
+package br.com.imc;
+
+public class Main {
+
+	public static void main(String[] args) {
+		
+		Pessoa objP1 = new Pessoa("Felipe", 83, (float) 1.73);
+		Pessoa objP2 = new Atleta("Caio", 83, (float) 1.73, "futebol");
+		System.out.printf("%.2f\n", objP1.calcularIMC());
+		System.out.printf("%.2f\n", objP2.calcularIMC());
+			
+		
+	}
+	
+}
+
+
